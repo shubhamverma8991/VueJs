@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0px;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This is Sparta 😡😎</h1>
+
+    <div id="app">
+      <!-- <h2>I am the template from HTML</h2> -->
+      <div v-if="showAll">
+        <p>{{title}}</p>
+        <p>{{author}}</p>
+        <p>{{release}}</p>
+      </div>
+      <button v-on:click="release++">Increase</button>&emsp;
+      <button v-on:click="release--">Decrease</button> &emsp;
+      <button @click="title = '300'">Change</button> <br />
+      <br />
+      <!-- method1 -->
+      <button @click="changeTitle">Change from Script</button> &emsp;
+      <!-- method2 -->
+      <button @click="changeTitle('Change')">Method2</button>
+
+      <br /><br />
+      <button @click="toggle">
+        <!-- Directives -->
+        <span v-if="showAll">Hide</span>
+        <span v-if="!showAll">Show</span>
+        <!-- v-if is for the button to display the required msg -->
+        <!-- or we can use v-if and v-else -->
+        &emsp; &emsp;
+        <span v-if="showAll">New Hide</span>
+        <span v-else>New Show</span>
+      </button>
+
+      <!-- it uses css if it is true than it displays the box  -->
+      <div v-show="showAll">Currently Showing Details</div>
+      <div v-show="!showAll">Currently Hiding Details</div>
+
+      <br />
+      <br />
+      <!-- mouse events -->
+      <div class="box" @mouseover="handleEvent">mouse (enter)</div>
+      <div class="box">mouse leave</div>
+      <div class="box">double click</div>
+      <div class="box"></div>
+    </div>
+
+    <!-- <p>Not Here</p> -->
+
+    <script src="app.js"></script>
+  </body>
+</html>
