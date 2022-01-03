@@ -6,13 +6,39 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
-      .box {
-        padding: 100px 0px;
-        width: 400px;
-        text-align: center;
-        background: #ddd;
-        margin: 20px;
-        display: inline-block;
+      /* .box {
+              padding: 100px 0px;
+              width: 400px;
+              text-align: center;
+              background: #ddd;
+              margin: 20px;
+              display: inline-block;
+            } */
+
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
+      P,
+      h3,
+      ul {
+        margin: 0;
+        padding: e;
+      }
+      li {
+        list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      li.fav {
+        background-color: rgb(255, 224, 184);
       }
     </style>
   </head>
@@ -21,8 +47,15 @@
 
     <div id="app">
       <!-- <h2>I am the template from HTML</h2> -->
+      <a v-bind:href="url">Search Engine</a>
+      &emsp;
+      <!-- v-bind or : both are same -->
+      <a :href="url1">Refresh</a>
+      <br />
+      <!-- <p>{{filterbooks}}</p> -->
       <div v-if="showAll">
-        <p>
+        <!-- when u have limited number of list -->
+        <!-- <p>
           {{books[0].title}} &emsp; {{books[0].author}} &emsp;
           {{books[0].release}}
         </p>
@@ -33,7 +66,24 @@
         <p>
           {{books[2].title}} &emsp; {{books[2].author}} &emsp;
           {{books[2].release}}
-        </p>
+        </p> -->
+
+        <!-- when u have n number of items in list -->
+        <ul>
+          <!--      anyName in Array  -->
+          <!--Cycle around number of items   v-for     -->
+          <!--inside class there is key value pair-->
+          <li
+            v-for="item in filteredBooks"
+            :class="{ fav: item.isFav }"
+            @click="togglefav(item)"
+          >
+            <img :src="item.img" />
+            <h3 style="text-transform: uppercase">{{item.title}}</h3>
+            <p style="text-transform: uppercase">{{item.author}}</p>
+            <p>{{item.release}}</p>
+          </li>
+        </ul>
       </div>
       <button v-on:click="release++">Increase</button>&emsp;
       <button v-on:click="release--">Decrease</button> &emsp;
@@ -57,8 +107,8 @@
       </button>
 
       <!-- it uses css if it is true than it displays the box  -->
-      <div v-show="showAll">Currently Showing Details</div>
-      <div v-show="!showAll">Currently Hiding Details</div>
+      <div v-show="showAll"><strong> Showing Details</strong></div>
+      <div v-show="!showAll"><strong>Hiding Details</strong></div>
 
       <br />
       <br />

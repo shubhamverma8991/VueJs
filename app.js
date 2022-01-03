@@ -4,22 +4,31 @@ const application = Vue.createApp({
 
   data() {
     return {
+      url: "http://www.google.com",
+      url1: "#",
       showAll: true,
+      //array of books
       books: [
         {
           title: "name of the wind",
           author: "patrick rothfuss",
           release: 2005,
+          img: "assets/1.png",
+          isFav: true,
         },
         {
           title: "the way of kings",
           author: "brandon sanderson",
           release: 2001,
+          img: "assets/2.jpg",
+          isFav: false,
         },
         {
           title: "the final empire",
           author: "brandon sanderson ",
           release: 2010,
+          img: "assets/3.png",
+          isFav: true,
         },
       ],
       // title: "THis is Sparta",
@@ -54,6 +63,15 @@ const application = Vue.createApp({
     handlemousemove(e) {
       this.x = e.offsetX;
       this.y = e.offsetY;
+    },
+
+    togglefav(book) {
+      book.isFav = !book.isFav;
+    },
+  },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => book.isFav);
     },
   },
 });
