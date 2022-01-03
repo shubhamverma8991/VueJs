@@ -22,9 +22,18 @@
     <div id="app">
       <!-- <h2>I am the template from HTML</h2> -->
       <div v-if="showAll">
-        <p>{{title}}</p>
-        <p>{{author}}</p>
-        <p>{{release}}</p>
+        <p>
+          {{books[0].title}} &emsp; {{books[0].author}} &emsp;
+          {{books[0].release}}
+        </p>
+        <p>
+          {{books[1].title}} &emsp; {{books[1].author}} &emsp;
+          {{books[1].release}}
+        </p>
+        <p>
+          {{books[2].title}} &emsp; {{books[2].author}} &emsp;
+          {{books[2].release}}
+        </p>
       </div>
       <button v-on:click="release++">Increase</button>&emsp;
       <button v-on:click="release--">Decrease</button> &emsp;

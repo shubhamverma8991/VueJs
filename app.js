@@ -5,11 +5,28 @@ const application = Vue.createApp({
   data() {
     return {
       showAll: true,
-      title: "THis is Sparta",
-      author: "300",
-      release: "2005",
-      x: 0,
-      y: 0,
+      books: [
+        {
+          title: "name of the wind",
+          author: "patrick rothfuss",
+          release: 2005,
+        },
+        {
+          title: "the way of kings",
+          author: "brandon sanderson",
+          release: 2001,
+        },
+        {
+          title: "the final empire",
+          author: "brandon sanderson ",
+          release: 2010,
+        },
+      ],
+      // title: "THis is Sparta",
+      // author: "300",
+      // release: "2005",
+      // x: 0,
+      // y: 0,
     };
   },
 
