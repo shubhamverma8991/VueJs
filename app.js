@@ -8,6 +8,8 @@ const application = Vue.createApp({
       title: "THis is Sparta",
       author: "300",
       release: "2005",
+      x: 0,
+      y: 0,
     };
   },
 
@@ -26,8 +28,15 @@ const application = Vue.createApp({
     },
 
     //events handlers
-    handleEvent() {
-      console.log("even");
+    handleEvent(e, data) {
+      console.log(e, e.type);
+      if (data) {
+        console.log(data);
+      }
+    },
+    handlemousemove(e) {
+      this.x = e.offsetX;
+      this.y = e.offsetY;
     },
   },
 });

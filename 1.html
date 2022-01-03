@@ -54,10 +54,11 @@
       <br />
       <br />
       <!-- mouse events -->
-      <div class="box" @mouseover="handleEvent">mouse (enter)</div>
-      <div class="box">mouse leave</div>
-      <div class="box">double click</div>
-      <div class="box"></div>
+      <div class="box" @mouseover="handleEvent($event,5)">Mouse (enter)</div>
+      <div class="box" @mouseleave="handleEvent">Mouse leave</div>
+      <!-- when we don't pass any argument : $event argument automatically pasees -->
+      <div class="box" @dblclick="handleEvent">Double Click</div>
+      <div class="box" @mousemove="handlemousemove">position {{x}} {{y}}</div>
     </div>
 
     <!-- <p>Not Here</p> -->
