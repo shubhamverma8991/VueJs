@@ -116,13 +116,11 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  /* -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  padding: 0 0;
-  background: olivedrab;
 }
 .buttonstyle {
   position: relative;
@@ -132,14 +130,12 @@ export default {
   top: 50%;
   left: 0;
   width: 120px;
-  padding: 10px 10px;
 }
 .btn2 {
   position: absolute;
   top: 50%;
   left: 125px;
   width: 120px;
-  padding: 10px 10px;
 }
 .listdiv {
   text-align: left;
